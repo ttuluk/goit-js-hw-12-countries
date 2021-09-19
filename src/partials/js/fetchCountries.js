@@ -4,41 +4,31 @@ import countryCard from '../../templates/country-card.hbs';
 import API from './api-service.js'
 import getRefs from './get-refs.js';
 const refs = getRefs();
+const DELAY = 500;
 
-refs.searchForm.addEventListener('submit', onSearch);
+refs.searchForm.addEventListener('input', onSearch);
 
 function onSearch(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const form = e.currentTarget;
-  const searchNAME = form.elements.query.value;
-
- API.fetchCountry(searchNAME).then(renderCountryCard).catch(onFetchError).finally(() => form.reset());
+const form = e.currentTarget;
+const searchNAME = form.elements.query.value;
+    
+const api = API.fetchCountry(searchNAME).then(renderCountryCard).catch(onFetchError).finally(() => { });
+debounce(api);
 }
 
+function debounce(callback) {
 
-// API.fetchCountry(NAME).then(renderCountryCard).catch(onFetchError);
-//     // .finally(() => form.reset());
-
-
-// let country = fetch(`https://restcountries.eu/rest/v2/name/${NAME}`).then(r => {
-//     if (r.ok) {
-//         return r.json();
-//     }
-//     return { countries:[]};
-// }).then(ar => {
-//     console.log(ar);
-//   renderCountryCard({ar});
-// });
-// console.log(country);
-
-
+  return function(ar) {
+    clearTimeout(timeout);
+    timeout = setTimeout(callback, DELAY, ar);
+  };
+}
 
 function renderCountryCard(country) {
-    console.log(country);
  const result = country.map(element => {
     return countryCard(element);
-     console.log(countryCard(element));
     });
     refs.cardContainer.innerHTML = result;
 }
