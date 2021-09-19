@@ -27,6 +27,9 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "handlebars": "^4.7.7"
+    "@angular/core": "^12.2.6",
+    "handlebars": "^4.7.7",
+    "rxjs": "^7.3.0",
+    "zone.js": "^0.11.4"
   }
 }
