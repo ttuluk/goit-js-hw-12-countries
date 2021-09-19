@@ -3,11 +3,12 @@
         <img src="{{flag}}" alt="{{name}}">
     </div>
     <div class="card-body">
-        <h2 class="card-title"><b>Capital:</b> {{capital}}</h2>
+        <h2 class="card-title"><b>Country:</b> {{name}}</h2>
+        <p class="card-text"><b>Capital:</b> {{capital}}</p>
         <p class="card-text"><b>Population:</b> {{population}}</p>
 
         <p class="card-text"><b>Languages:</b></p>
-        <ul class="list-group"></ul>
+        <ul class="list-group">
         {{#each languages}}
         <li class="list-group-item">{{name}}</li>
         {{/each}}

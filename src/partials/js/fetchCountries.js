@@ -35,6 +35,7 @@ function onSearch(e) {
 
 
 function renderCountryCard(country) {
+    console.log(country);
  const result = country.map(element => {
     return countryCard(element);
      console.log(countryCard(element));
