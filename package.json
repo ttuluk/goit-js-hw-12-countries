@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "@angular/core": "^12.2.6",
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
     "handlebars": "^4.7.7",
     "rxjs": "^7.3.0",
     "zone.js": "^0.11.4"
